@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas com Botões</title>
+  <style>
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="400" height="300"></canvas>
+
+<button onclick="desenharCirculo()">Desenhar Círculo</button>
+<button onclick="desenharArco()">Desenhar Arco</button>
+<button onclick="desenharArcoAntiHorario()">Desenhar Arco Anti-horário</button>
+<button onclick="desenharCirculoColorido()">Desenhar Círculo Colorido</button>
+
+<script>
+  // Obtém o elemento canvas e seu contexto
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+
+  function limparCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  function desenharCirculo() {
+    limparCanvas();
+    ctx.beginPath();
+    ctx.arc(200, 150, 50, 0, 2 * Math.PI);
+    ctx.stroke();
+  }
+
+  function desenharArco() {
+    limparCanvas();
+    ctx.beginPath();
+    ctx.arc(200, 150, 50, 0, Math.PI);
+    ctx.stroke();
+  }
+
+  function desenharArcoAntiHorario() {
+    limparCanvas();
+    ctx.beginPath();
+    ctx.arc(200, 150, 50, 0, -Math.PI);
+    ctx.stroke();
+  }
+
+  function desenharCirculoColorido() {
+    limparCanvas();
+    ctx.beginPath();
+    ctx.arc(200, 150, 50, 0, 2 * Math.PI);
+    ctx.fillStyle = "red";
+    ctx.fill();
+  }
+</script>
+
+</body>
+</html>
